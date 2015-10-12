@@ -7,7 +7,7 @@ class TwilioCapability
     capability = Twilio::Util::Capability.new account_sid, auth_token
 
     application_sid = ENV['TWIML_APPLICATION_SID']
-    capability.allow_client_incoming application_sid
+    capability.allow_client_outgoing application_sid
     capability.allow_client_incoming role
 
     token = capability.generate

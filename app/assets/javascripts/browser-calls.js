@@ -1,5 +1,5 @@
 /**
- * Twilio Client configuration for the browser-calls-django
+ * Twilio Client configuration for the browser-calls-rails
  * example application.
  */
 

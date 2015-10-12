@@ -7,6 +7,6 @@ class TokenController < ApplicationController
   end
 
   def role
-    params[:page] == '/dashboard' ? 'support_agent' : 'customer'
+    params[:page] == dashboard_path ? 'support_agent' : 'customer'
   end
 end
