@@ -1,6 +1,12 @@
 class TokenController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def generate
-    token = TwilioCapability.generate(params[:page])
+    token = ::TwilioCapability.generate(role)
     render json: {token: token}
+  end
+
+  def role
+    params[:page] == '/dashboard' ? 'support_agent' : 'customer'
   end
 end

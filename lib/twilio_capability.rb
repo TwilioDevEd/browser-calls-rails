@@ -1,5 +1,5 @@
 class TwilioCapability
-  def self.generate(page)
+  def self.generate(role)
     # To find TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN visit
     # https://www.twilio.com/user/account
     account_sid = ENV['TWILIO_ACCOUNT_SID']
@@ -8,7 +8,7 @@ class TwilioCapability
 
     application_sid = ENV['TWIML_APPLICATION_SID']
     capability.allow_client_incoming application_sid
-    capability.allow_client_incoming page
+    capability.allow_client_incoming role
 
     token = capability.generate
   end
