@@ -39,3 +39,180 @@
       * [Twilio Ruby Helper Library](//github.com/twilio/twilio-ruby/)
       * [Twilio Client docs](//www.twilio.com/docs/client)
       * [Rails Guides](//guides.rubyonrails.org/)
+
+  .step(data-file='app/controllers/tickets_controller.rb', data-highlight='2-9')
+    :markdown
+      ## Submit a support ticket
+
+      The home page of our app displays a form for customers to submit support
+      tickets. We use
+      [Rails layouts](http://guides.rubyonrails.org/layouts_and_rendering.html)
+      to power the page.
+
+      The `Ticket` model itself has just a few fields.
+
+      ---
+
+      **See also:**
+
+      * [Layouts and Rendering in Rails](http://guides.rubyonrails.org/layouts_and_rendering.html)
+      * [Active Record](http://guides.rubyonrails.org/active_record_basics.html)
+
+  .step(data-file='app/views/dashboard/index.erb', data-highlight='25-46')
+    :markdown
+      ## The support dashboard
+
+      When a support agent visits `/dashboard`, they see all the support
+      tickets which have been submitted.
+
+      ![Browser Calls support dashboard](http://howtodocs.s3.amazonaws.com/browser-calls/browser-calls-dashboard.png)
+
+      Each ticket also has a "Call Customer" button which invokes a JavaScript
+      function we wrote named `callCustomer()`. That function kicks off a Twilio
+      Client call to the phone number passed as its sole parameter.
+
+  .step(data-file='lib/twilio_capability.rb', data-highlight='2-14')
+    :markdown
+      ## Generate a capability token
+
+      Before our users can make calls with Twilio Client in their browser, we
+      need to provide them with a capability token.
+
+      We use the [twilio-ruby](https://twilio-ruby.readthedocs.org/en/latest/)
+      helper library to generate and configure our capability tokens. To allow
+      our support agents to call the phone numbers on our tickets, we use the
+      `allow_client_outgoing()` method.
+
+      That method requires an identifier for a
+      [TwiML Application](https://www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app).
+      Twilio will send a POST request to our backend every time a user makes a
+      Twilio Client call — the TwiML Application tells Twilio which URL to send
+      that request to.
+
+      ---
+
+      **See also:**
+
+      * [Twilio Client: Capability Tokens](https://www.twilio.com/docs/client/capability-tokens)
+      * [Generate Capability Tokens with twilio-ruby](https://twilio-ruby.readthedocs.org/en/latest/usage/token-generation.html)
+
+  .step(data-file='app/assets/javascripts/browser-calls.js', data-highlight='18-29')
+    :markdown
+      ## Set up Twilio Client
+
+      To use Twilio Client in a web browser we use the
+      [twilio.js library](https://www.twilio.com/docs/client/twilio-js).
+
+      We start by retrieving a capability token from the view we defined in the
+      previous step with an AJAX request. We then enable Twilio Client
+      for this page by passing our token to `Twilio.Device.setup()`.
+
+      The `Twilio.Device.ready()` callback lets us know when the browser is
+      ready to make and receive calls.
+
+      ---
+
+      **See also:**
+
+      * [jQuery `.get()`](https://api.jquery.com/jquery.get/)
+      * [Twilio.Device.setup()](https://www.twilio.com/docs/client/device#setup)
+      * [Twilio.Device.ready()](https://www.twilio.com/docs/client/device#ready)
+
+  .step(data-file='app/assets/javascripts/browser-calls.js', data-highlight='91-97')
+    :markdown
+      ## Call a customer (browser-to-phone)
+
+      When our support agent clicks "Call Customer" on a support ticket, this
+      function initiates the call.
+
+      We use `Twilio.Device.connect()` to begin a new outgoing call. Our backend
+      will tell Twilio how to handle this call, so we include a `phoneNumber`
+      parameter that we'll use in our `call` view.
+
+      Let's look at that view next.
+
+      ---
+
+      **See also:**
+
+      * [Twilio.Device.connect()](https://www.twilio.com/docs/client/device#connect)
+
+  .step(data-file='app/controllers/call_controller.rb', data-highlight='2-6, 11-21')
+    :markdown
+      ## Connect the call to a phone number
+
+      Whenever one of our users makes a call, Twilio will send a POST request to
+      the URL we set on our TwiML Application - in this case,
+      `/call/connect`.
+
+      We use [TwiML](https://www.twilio.com/docs/api/twiml) to respond to the
+      request and tell Twilio how to handle the call. Twilio will pass along the
+      `phoneNumber` parameter from the previous step in its request, which
+      we will then [Dial](https://www.twilio.com/docs/api/twiml/dial) in our TwiML.
+
+      ---
+
+      **See also:**
+
+      * [<Number> TwiML verb](https://www.twilio.com/docs/api/twiml/number)
+      * [TwiML creation with twilio-ruby](https://twilio-ruby.readthedocs.org/en/latest/usage/twiml.html)
+      * [Rails verify authenticity token](http://apidock.com/rails/v4.2.1/ActionController/RequestForgeryProtection/verify_authenticity_token)
+
+  .step(data-file='app/assets/javascripts/browser-calls.js', data-highlight='47-58, 62-63')
+      :markdown
+        ## The call is live
+
+        After our `call` view responds, Twilio completes the connection between
+        our support agent's browser and the customer's phone.
+
+        We use the `Twilio.Device.connect()` callback to update some UI elements
+        and make it clear our user is in a call. This function receives a
+        [Connection](https://www.twilio.com/docs/client/connection) object,
+        which offers some additional details about the call.
+
+        ---
+
+        **See also:**
+
+        * [Twilio.Device.connect() callback](https://www.twilio.com/docs/client/device#connect-handler)
+        * [jQuery .prop()](http://api.jquery.com/prop/)
+
+  .step(data-file='app/assets/javascripts/browser-calls.js', data-highlight='99-105')
+      :markdown
+        ## Call a support agent (browser-to-browser)
+
+        Support tickets are useful, but sometimes a customer needs help right now.
+        With just a little more work we let customers speak with a support agent
+        live via a browser-to-browser call.
+
+        ![Browser Calls call support](http://howtodocs.s3.amazonaws.com/browser-calls/browser-calls-call-support.png)
+
+        When a customer clicks "Call support" on the home page we again use
+        `Twilio.Device.connect()` to initiate the call. This time we don't pass
+        any additional parameters — our backend will route this call to our
+        support agent.
+
+        ---
+
+        **See also:**
+
+        * [Twilio.Device.connect()](https://www.twilio.com/docs/client/device#connect)
+
+  .step(data-file='lib/twilio_capability.rb', data-highlight='3-13')
+      :markdown
+        ## Connect the call to the support agent's client
+
+        To allow our support agents to accept incoming calls we use the
+        `allow_client_incoming()` method when generating their capability token,
+        passing `support_agent` as the client's name.
+
+        When Twilio sends a POST request to our `/call/connect` end point, we can connect the
+        call to our support agent by responding with a
+        [<Client>](https://www.twilio.com/docs/api/twiml/client) TwiML noun and
+        the `support_agent` name.
+
+        ---
+
+        **See also:**
+
+        * [Allow Incoming Connections on Capability Tokens](https://www.twilio.com/docs/client/capability-tokens#allow-incoming-connections)
