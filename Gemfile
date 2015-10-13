@@ -19,9 +19,6 @@ gem 'twilio-ruby'
 
 group :test do
   gem 'byebug'
-  gem 'factory_girl_rails', "~> 4.0"
   gem 'rspec-rails'
   gem 'database_cleaner'
-  gem 'vcr'
-  gem 'webmock'
 end
