@@ -3,7 +3,7 @@ require 'rails_helper'
 describe CallController do
   describe '#connect' do
     context 'when phoneNumber is provided' do
-      it 'includes Number' do
+      it 'dials to phone number' do
         post :connect, phoneNumber: 'phone-number'
         xml = load_xml(response.body)
         expect(xml.at_xpath('//Response//Dial//Number').content)
@@ -12,7 +12,7 @@ describe CallController do
     end
 
     context 'when phoneNumber is not provided' do
-      it 'includes Client' do
+      it 'dials to support agent' do
         post :connect
         xml = load_xml(response.body)
         expect(xml.at_xpath('//Response//Dial//Client').content)

@@ -2,17 +2,22 @@ class CallController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def connect
+    render xml: twilio_reponse.to_xml
+  end
+
+  private
+
+  def twilio_reponse
     twilio_number = ENV['TWILIO_PHONE_NUMBER']
-    response = Twilio::TwiML::Response.new do |r|
-      r.Dial callerId: twilio_number do |d|
+
+    Twilio::TwiML::Response.new do |response|
+      response.Dial callerId: twilio_number do |dial|
         if params.include?(:phoneNumber)
-          d.Number params[:phoneNumber]
+          dial.Number params[:phoneNumber]
         else
-          d.Client('support_agent')
+          dial.Client('support_agent')
         end
       end
     end
-
-    render xml: response.to_xml
   end
 end
