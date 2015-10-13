@@ -22,5 +22,11 @@ describe TicketsController do
       post :create, ticket_params
       expect(response).to redirect_to root_path
     end
+
+    it "do not create a ticket if params are invalid" do
+      expect do
+        post :create, ticket: {name: ''}
+      end.to_not change(Ticket, :count)
+    end
   end
 end
