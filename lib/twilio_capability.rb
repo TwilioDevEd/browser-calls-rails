@@ -10,6 +10,6 @@ class TwilioCapability
     capability.allow_client_outgoing application_sid
     capability.allow_client_incoming role
 
-    token = capability.generate
+    capability.generate
   end
 end

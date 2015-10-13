@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe DashboardController do
-  describe "#index" do
-    it "assigns tickets" do
+  describe '#index' do
+    it 'assigns tickets' do
       ticket = double('Ticket')
       allow(Ticket).to receive(:all) { [ticket] }
 

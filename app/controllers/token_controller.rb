@@ -3,7 +3,7 @@ class TokenController < ApplicationController
 
   def generate
     token = ::TwilioCapability.generate(role)
-    render json: {token: token}
+    render json: { token: token }
   end
 
   def role

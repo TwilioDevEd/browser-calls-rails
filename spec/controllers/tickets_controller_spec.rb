@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe TicketsController do
-  describe "#create" do
+  describe '#create' do
     let(:ticket_params) do
       {
         ticket: {
@@ -12,20 +12,20 @@ describe TicketsController do
       }
     end
 
-    it "creates a ticket" do
+    it 'creates a ticket' do
       expect do
         post :create, ticket_params
       end.to change(Ticket, :count).by(1)
     end
 
-    it "redirects to root path" do
+    it 'redirects to root path' do
       post :create, ticket_params
       expect(response).to redirect_to root_path
     end
 
-    it "do not create a ticket if params are invalid" do
+    it 'do not create a ticket if params are invalid' do
       expect do
-        post :create, ticket: {name: ''}
+        post :create, ticket: { name: '' }
       end.to_not change(Ticket, :count)
     end
   end
