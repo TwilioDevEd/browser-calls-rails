@@ -41,46 +41,46 @@ code snippet.</p>
 <li><a href="//www.twilio.com/docs/client">Twilio Client docs</a></li>
 <li><a href="//guides.rubyonrails.org/">Rails Guides</a></li>
 </ul>
-</div><div data-file="app/controllers/tickets_controller.rb" data-highlight="2-9" class="step"><h2 id="submit-a-support-ticket">Submit a support ticket</h2>
+</div><div data-file="app/controllers/tickets_controller.rb" class="step"><h2 id="submit-a-support-ticket">Submit a support ticket</h2>
 <p>The home page of our app displays a form for customers to submit support
 tickets. We use
-<a href="http://guides.rubyonrails.org/layouts_and_rendering.html">Rails layouts</a>
+<a href="//guides.rubyonrails.org/layouts_and_rendering.html">Rails layouts</a>
 to power the page.</p>
 <p>The <code>Ticket</code> model itself has just a few fields.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="http://guides.rubyonrails.org/layouts_and_rendering.html">Layouts and Rendering in Rails</a></li>
-<li><a href="http://guides.rubyonrails.org/active_record_basics.html">Active Record</a></li>
+<li><a href="//guides.rubyonrails.org/layouts_and_rendering.html">Layouts and Rendering in Rails</a></li>
+<li><a href="//guides.rubyonrails.org/active_record_basics.html">Active Record</a></li>
 </ul>
-</div><div data-file="app/views/dashboard/index.erb" data-highlight="25-46" class="step"><h2 id="the-support-dashboard">The support dashboard</h2>
+</div><div data-file="app/views/dashboard/index.erb" data-highlight="25-48" class="step"><h2 id="the-support-dashboard">The support dashboard</h2>
 <p>When a support agent visits <code>/dashboard</code>, they see all the support
 tickets which have been submitted.</p>
-<p><img src="http://howtodocs.s3.amazonaws.com/browser-calls/browser-calls-dashboard.png" alt="Browser Calls support dashboard"></p>
+<p><img src="//howtodocs.s3.amazonaws.com/browser-calls/browser-calls-dashboard.png" alt="Browser Calls support dashboard"></p>
 <p>Each ticket also has a &quot;Call Customer&quot; button which invokes a JavaScript
 function we wrote named <code>callCustomer()</code>. That function kicks off a Twilio
 Client call to the phone number passed as its sole parameter.</p>
 </div><div data-file="lib/twilio_capability.rb" data-highlight="2-14" class="step"><h2 id="generate-a-capability-token">Generate a capability token</h2>
 <p>Before our users can make calls with Twilio Client in their browser, we
 need to provide them with a capability token.</p>
-<p>We use the <a href="https://twilio-ruby.readthedocs.org/en/latest/">twilio-ruby</a>
+<p>We use the <a href="//twilio-ruby.readthedocs.org/en/latest/">twilio-ruby</a>
 helper library to generate and configure our capability tokens. To allow
 our support agents to call the phone numbers on our tickets, we use the
-<code>allow_client_outgoing()</code> method.</p>
+<code>allow_client_outgoing</code> method.</p>
 <p>That method requires an identifier for a
-<a href="https://www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app">TwiML Application</a>.
+<a href="//www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app">TwiML Application</a>.
 Twilio will send a POST request to our backend every time a user makes a
 Twilio Client call — the TwiML Application tells Twilio which URL to send
 that request to.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://www.twilio.com/docs/client/capability-tokens">Twilio Client: Capability Tokens</a></li>
-<li><a href="https://twilio-ruby.readthedocs.org/en/latest/usage/token-generation.html">Generate Capability Tokens with twilio-ruby</a></li>
+<li><a href="//www.twilio.com/docs/client/capability-tokens">Twilio Client: Capability Tokens</a></li>
+<li><a href="//twilio-ruby.readthedocs.org/en/latest/usage/token-generation.html">Generate Capability Tokens with twilio-ruby</a></li>
 </ul>
 </div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="18-29" class="step"><h2 id="set-up-twilio-client">Set up Twilio Client</h2>
 <p>To use Twilio Client in a web browser we use the
-<a href="https://www.twilio.com/docs/client/twilio-js">twilio.js library</a>.</p>
+<a href="//www.twilio.com/docs/client/twilio-js">twilio.js library</a>.</p>
 <p>We start by retrieving a capability token from the view we defined in the
 previous step with an AJAX request. We then enable Twilio Client
 for this page by passing our token to <code>Twilio.Device.setup()</code>.</p>
@@ -89,9 +89,9 @@ ready to make and receive calls.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://api.jquery.com/jquery.get/">jQuery <code>.get()</code></a></li>
-<li><a href="https://www.twilio.com/docs/client/device#setup">Twilio.Device.setup()</a></li>
-<li><a href="https://www.twilio.com/docs/client/device#ready">Twilio.Device.ready()</a></li>
+<li><a href="//api.jquery.com/jquery.get/">jQuery .get()</a></li>
+<li><a href="//www.twilio.com/docs/client/device#setup">Twilio.Device.setup()</a></li>
+<li><a href="//www.twilio.com/docs/client/device#ready">Twilio.Device.ready()</a></li>
 </ul>
 </div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="91-97" class="step"><h2 id="call-a-customer-browser-to-phone-">Call a customer (browser-to-phone)</h2>
 <p>When our support agent clicks &quot;Call Customer&quot; on a support ticket, this
@@ -103,41 +103,41 @@ parameter that we&#39;ll use in our <code>call</code> view.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://www.twilio.com/docs/client/device#connect">Twilio.Device.connect()</a></li>
+<li><a href="//www.twilio.com/docs/client/device#connect">Twilio.Device.connect()</a></li>
 </ul>
-</div><div data-file="app/controllers/call_controller.rb" data-highlight="2-6, 11-21" class="step"><h2 id="connect-the-call-to-a-phone-number">Connect the call to a phone number</h2>
+</div><div data-file="app/controllers/call_controller.rb" data-highlight="2-22" class="step"><h2 id="connect-the-call-to-a-phone-number">Connect the call to a phone number</h2>
 <p>Whenever one of our users makes a call, Twilio will send a POST request to
 the URL we set on our TwiML Application - in this case,
 <code>/call/connect</code>.</p>
-<p>We use <a href="https://www.twilio.com/docs/api/twiml">TwiML</a> to respond to the
+<p>We use <a href="//www.twilio.com/docs/api/twiml">TwiML</a> to respond to the
 request and tell Twilio how to handle the call. Twilio will pass along the
 <code>phoneNumber</code> parameter from the previous step in its request, which
-we will then <a href="https://www.twilio.com/docs/api/twiml/dial">Dial</a> in our TwiML.</p>
+we will then <a href="//www.twilio.com/docs/api/twiml/dial">Dial</a> in our TwiML.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://www.twilio.com/docs/api/twiml/number">&lt;Number&gt; TwiML verb</a></li>
-<li><a href="https://twilio-ruby.readthedocs.org/en/latest/usage/twiml.html">TwiML creation with twilio-ruby</a></li>
-<li><a href="http://apidock.com/rails/v4.2.1/ActionController/RequestForgeryProtection/verify_authenticity_token">Rails verify authenticity token</a></li>
+<li><a href="//www.twilio.com/docs/api/twiml/number">&lt;Number&gt; TwiML verb</a></li>
+<li><a href="//twilio-ruby.readthedocs.org/en/latest/usage/twiml.html">TwiML creation with twilio-ruby</a></li>
+<li><a href="//apidock.com/rails/v4.2.1/ActionController/RequestForgeryProtection/verify_authenticity_token">Rails verify authenticity token</a></li>
 </ul>
-</div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="47-58, 62-63" class="step"><h2 id="the-call-is-live">The call is live</h2>
+</div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="47-63" class="step"><h2 id="the-call-is-live">The call is live</h2>
 <p>After our <code>call</code> view responds, Twilio completes the connection between
 our support agent&#39;s browser and the customer&#39;s phone.</p>
 <p>We use the <code>Twilio.Device.connect()</code> callback to update some UI elements
 and make it clear our user is in a call. This function receives a
-<a href="https://www.twilio.com/docs/client/connection">Connection</a> object,
+<a href="//www.twilio.com/docs/client/connection">Connection</a> object,
 which offers some additional details about the call.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://www.twilio.com/docs/client/device#connect-handler">Twilio.Device.connect() callback</a></li>
-<li><a href="http://api.jquery.com/prop/">jQuery .prop()</a></li>
+<li><a href="//www.twilio.com/docs/client/device#connect-handler">Twilio.Device.connect() callback</a></li>
+<li><a href="//api.jquery.com/prop/">jQuery .prop()</a></li>
 </ul>
 </div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="99-105" class="step"><h2 id="call-a-support-agent-browser-to-browser-">Call a support agent (browser-to-browser)</h2>
 <p>Support tickets are useful, but sometimes a customer needs help right now.
 With just a little more work we let customers speak with a support agent
 live via a browser-to-browser call.</p>
-<p><img src="http://howtodocs.s3.amazonaws.com/browser-calls/browser-calls-call-support.png" alt="Browser Calls call support"></p>
+<p><img src="//howtodocs.s3.amazonaws.com/browser-calls/browser-calls-call-support.png" alt="Browser Calls call support"></p>
 <p>When a customer clicks &quot;Call support&quot; on the home page we again use
 <code>Twilio.Device.connect()</code> to initiate the call. This time we don&#39;t pass
 any additional parameters — our backend will route this call to our
@@ -145,26 +145,78 @@ support agent.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://www.twilio.com/docs/client/device#connect">Twilio.Device.connect()</a></li>
+<li><a href="//www.twilio.com/docs/client/device#connect">Twilio.Device.connect()</a></li>
 </ul>
-</div><div data-file="lib/twilio_capability.rb" data-highlight="3-13" class="step"><h2 id="connect-the-call-to-the-support-agent-s-client">Connect the call to the support agent&#39;s client</h2>
+</div><div data-file="lib/twilio_capability.rb" data-highlight="2-14" class="step"><h2 id="connect-the-call-to-the-support-agent-s-client">Connect the call to the support agent&#39;s client</h2>
 <p>To allow our support agents to accept incoming calls we use the
-<code>allow_client_incoming()</code> method when generating their capability token,
+<code>allow_client_incoming</code> method when generating their capability token,
 passing <code>support_agent</code> as the client&#39;s name.</p>
 <p>When Twilio sends a POST request to our <code>/call/connect</code> end point, we can connect the
 call to our support agent by responding with a
-<a href="https://www.twilio.com/docs/api/twiml/client">&lt;Client&gt;</a> TwiML noun and
+<a href="//www.twilio.com/docs/api/twiml/client">&lt;Client&gt;</a> TwiML noun and
 the <code>support_agent</code> name.</p>
 <hr>
 <p><strong>See also:</strong></p>
 <ul>
-<li><a href="https://www.twilio.com/docs/client/capability-tokens#allow-incoming-connections">Allow Incoming Connections on Capability Tokens</a></li>
+<li><a href="//www.twilio.com/docs/client/capability-tokens#allow-incoming-connections">Allow Incoming Connections on Capability Tokens</a></li>
 </ul>
+</div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="75-89" class="step"><h2 id="answer-the-call">Answer the call</h2>
+<p>When our support agent&#39;s client receives an incoming call, it will trigger
+the function we defined on the <code>Twilio.Device.incoming()</code> callback.</p>
+<p>The incoming <code>connection</code> will be in a &quot;pending&quot; state until we invoke its
+<code>.accept()</code> method, which we do in a function bound to the &quot;Answer
+call&quot; button.</p>
+<p>We also set a <code>.accept()</code> callback to update the UI once the call is live.</p>
+<hr>
+<p><strong>See also:</strong></p>
+<ul>
+<li><a href="//www.twilio.com/docs/client/device#incoming">Twilio.Device.incoming()</a></li>
+<li><a href="//www.twilio.com/docs/client/connection#accept">Twilio.Device.accept()</a></li>
+<li><a href="//api.jquery.com/click/">jQuery .click()</a></li>
+</ul>
+</div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="107-110, 65-73" class="step"><h2 id="end-a-call">End a call</h2>
+<p>To end a call we invoke <code>Twilio.Device.disconnectAll()</code>, which we wired
+to the &quot;Hang up&quot; button in our UI.</p>
+<p>We also define a callback function with <code>Twilio.Device.disconnect()</code>,
+above, to reset some UI elements.</p>
+<hr>
+<p><strong>See also:</strong></p>
+<ul>
+<li><a href="//www.twilio.com/docs/client/device#disconnect-all">Twilio.Device.disconnectAll()</a></li>
+<li><a href="//www.twilio.com/docs/client/device#disconnect">Twilio.Device.disconnect()</a></li>
+</ul>
+</div><div data-file="app/assets/javascripts/browser-calls.js" data-highlight="36-45" class="step"><h2 id="check-if-a-support-agent-is-available">Check if a support agent is available</h2>
+<p>If a customer calls support but no support agent is online, their call
+will go unanswered. To help avoid this frustration, we display a message
+above the &quot;Call support&quot; button when no agent is available:</p>
+<p><img src="//howtodocs.s3.amazonaws.com/browser-calls/browser-calls-support-unavailable.png" alt="Browser Calls support unavailable"></p>
+<p>We use <code>Twilio.Device.presence()</code> to update this message when the
+support agent&#39;s availability changes.</p>
+<hr>
+<p><strong>See also:</strong></p>
+<ul>
+<li><a href="//www.twilio.com/docs/client/device#presence">Twilio Client .presence()</a></li>
+</ul>
+</div><div class="step"><h2 id="where-to-next-">Where to next?</h2>
+<p>That&#39;s it! Our Rails application now powers browser-to-phone and
+browser-to-browser calls using Twilio Client.</p>
+<p>If you&#39;re a Ruby developer working with Twilio, you might also enjoy these
+tutorials:</p>
+<p><a href="//www.twilio.com/docs/howto/walkthrough/appointment-reminders/ruby/rails"><strong>Appointment-Reminders (Rails)</strong></a></p>
+<p>Schedule appointment reminders to be sent via sms</p>
+<p><a href="//www.twilio.com/docs/howto/walkthrough/click-to-call/ruby/rails"><strong>Click-To-Call (Rails)</strong></a></p>
+<p>Put a button on your web page that connects visitors to live support or sales people via telephone.</p>
+<p><a href="//www.twilio.com/docs/howto/walkthrough/automated-survey/ruby/rails"><strong>Automated Survey (Rails)</strong></a></p>
+<p>Instantly collect structured data from your users with a survey conducted
+over a voice call or SMS text messages.</p>
+<p>Thanks for checking out this tutorial! If you have any feedback to share
+with us, we&#39;d love to hear it. Tweet <a href="//twitter.com/twilio">@twilio</a>
+to let us know what you think.</p>
 </div></div>
 <div class="saurus-files" style="display:none;"><textarea class="saurus-file" data-file="app/assets/javascripts/browser-calls.js" data-mode="javascript">LyoqCiAqIFR3aWxpbyBDbGllbnQgY29uZmlndXJhdGlvbiBmb3IgdGhlIGJyb3dzZXItY2FsbHMtcmFpbHMKICogZXhhbXBsZSBhcHBsaWNhdGlvbi4KICovCgovLyBTdG9yZSBzb21lIHNlbGVjdG9ycyBmb3IgZWxlbWVudHMgd2UnbGwgcmV1c2UKdmFyIGNhbGxTdGF0dXMgPSAkKCIjY2FsbC1zdGF0dXMiKTsKdmFyIGFuc3dlckJ1dHRvbiA9ICQoIi5hbnN3ZXItYnV0dG9uIik7CnZhciBjYWxsU3VwcG9ydEJ1dHRvbiA9ICQoIi5jYWxsLXN1cHBvcnQtYnV0dG9uIik7CnZhciBoYW5nVXBCdXR0b24gPSAkKCIuaGFuZ3VwLWJ1dHRvbiIpOwp2YXIgY2FsbEN1c3RvbWVyQnV0dG9ucyA9ICQoIi5jYWxsLWN1c3RvbWVyLWJ1dHRvbiIpOwoKLyogSGVscGVyIGZ1bmN0aW9uIHRvIHVwZGF0ZSB0aGUgY2FsbCBzdGF0dXMgYmFyICovCmZ1bmN0aW9uIHVwZGF0ZUNhbGxTdGF0dXMoc3RhdHVzKSB7CiAgY2FsbFN0YXR1cy50ZXh0KHN0YXR1cyk7Cn0KCi8qIEdldCBhIFR3aWxpbyBDbGllbnQgdG9rZW4gd2l0aCBhbiBBSkFYIHJlcXVlc3QgKi8KJChkb2N1bWVudCkucmVhZHkoZnVuY3Rpb24oKSB7CiAgJC5wb3N0KCIvdG9rZW4vZ2VuZXJhdGUiLCB7cGFnZTogd2luZG93LmxvY2F0aW9uLnBhdGhuYW1lfSwgZnVuY3Rpb24oZGF0YSkgewogICAgLy8gU2V0IHVwIHRoZSBUd2lsaW8gQ2xpZW50IERldmljZSB3aXRoIHRoZSB0b2tlbgogICAgVHdpbGlvLkRldmljZS5zZXR1cChkYXRhLnRva2VuKTsKICB9KTsKfSk7CgovKiBDYWxsYmFjayB0byBsZXQgdXMga25vdyBUd2lsaW8gQ2xpZW50IGlzIHJlYWR5ICovClR3aWxpby5EZXZpY2UucmVhZHkoZnVuY3Rpb24gKGRldmljZSkgewogIHVwZGF0ZUNhbGxTdGF0dXMoIlJlYWR5Iik7Cn0pOwoKLyogUmVwb3J0IGFueSBlcnJvcnMgdG8gdGhlIGNhbGwgc3RhdHVzIGRpc3BsYXkgKi8KVHdpbGlvLkRldmljZS5lcnJvcihmdW5jdGlvbiAoZXJyb3IpIHsKICB1cGRhdGVDYWxsU3RhdHVzKCJFUlJPUjogIiArIGVycm9yLm1lc3NhZ2UpOwp9KTsKCi8qIENhbGxiYWNrIHRvIGRldGVybWluZSBpZiAic3VwcG9ydF9hZ2VudCIgaXMgYXZhaWxhYmxlIG9yIG5vdCAqLwpUd2lsaW8uRGV2aWNlLnByZXNlbmNlKGZ1bmN0aW9uKHByZXNlbmNlRXZlbnQpIHsKICBpZiAocHJlc2VuY2VFdmVudC5mcm9tID09PSAnc3VwcG9ydF9hZ2VudCcpIHsKICAgIGlmIChwcmVzZW5jZUV2ZW50LmF2YWlsYWJsZSkgewogICAgICAkKCIjc3VwcG9ydC11bmF2YWlsYWJsZSIpLmhpZGUoKTsKICAgIH0gZWxzZSB7CiAgICAgICQoIiNzdXBwb3J0LXVuYXZhaWxhYmxlIikuc2hvdygpOwogICAgfQogIH0KfSk7CgovKiBDYWxsYmFjayBmb3Igd2hlbiBUd2lsaW8gQ2xpZW50IGluaXRpYXRlcyBhIG5ldyBjb25uZWN0aW9uICovClR3aWxpby5EZXZpY2UuY29ubmVjdChmdW5jdGlvbiAoY29ubmVjdGlvbikgewogIC8vIEVuYWJsZSB0aGUgaGFuZyB1cCBidXR0b24gYW5kIGRpc2FibGUgdGhlIGNhbGwgYnV0dG9ucwogIGhhbmdVcEJ1dHRvbi5wcm9wKCJkaXNhYmxlZCIsIGZhbHNlKTsKICBjYWxsQ3VzdG9tZXJCdXR0b25zLnByb3AoImRpc2FibGVkIiwgdHJ1ZSk7CiAgY2FsbFN1cHBvcnRCdXR0b24ucHJvcCgiZGlzYWJsZWQiLCB0cnVlKTsKICBhbnN3ZXJCdXR0b24ucHJvcCgiZGlzYWJsZWQiLCB0cnVlKTsKCiAgLy8gSWYgcGhvbmVOdW1iZXIgaXMgcGFydCBvZiB0aGUgY29ubmVjdGlvbiwgdGhpcyBpcyBhIGNhbGwgZnJvbSBhCiAgLy8gc3VwcG9ydCBhZ2VudCB0byBhIGN1c3RvbWVyJ3MgcGhvbmUKICBpZiAoInBob25lTnVtYmVyIiBpbiBjb25uZWN0aW9uLm1lc3NhZ2UpIHsKICAgIHVwZGF0ZUNhbGxTdGF0dXMoIkluIGNhbGwgd2l0aCAiICsgY29ubmVjdGlvbi5tZXNzYWdlLnBob25lTnVtYmVyKTsKICB9IGVsc2UgewogICAgLy8gVGhpcyBpcyBhIGNhbGwgZnJvbSBhIHdlYnNpdGUgdXNlciB0byBhIHN1cHBvcnQgYWdlbnQKICAgIHVwZGF0ZUNhbGxTdGF0dXMoIkluIGNhbGwgd2l0aCBzdXBwb3J0Iik7CiAgfQp9KTsKCi8qIENhbGxiYWNrIGZvciB3aGVuIGEgY2FsbCBlbmRzICovClR3aWxpby5EZXZpY2UuZGlzY29ubmVjdChmdW5jdGlvbihjb25uZWN0aW9uKSB7CiAgLy8gRGlzYWJsZSB0aGUgaGFuZ3VwIGJ1dHRvbiBhbmQgZW5hYmxlIHRoZSBjYWxsIGJ1dHRvbnMKICBoYW5nVXBCdXR0b24ucHJvcCgiZGlzYWJsZWQiLCB0cnVlKTsKICBjYWxsQ3VzdG9tZXJCdXR0b25zLnByb3AoImRpc2FibGVkIiwgZmFsc2UpOwogIGNhbGxTdXBwb3J0QnV0dG9uLnByb3AoImRpc2FibGVkIiwgZmFsc2UpOwoKICB1cGRhdGVDYWxsU3RhdHVzKCJSZWFkeSIpOwp9KTsKCi8qIENhbGxiYWNrIGZvciB3aGVuIFR3aWxpbyBDbGllbnQgcmVjZWl2ZXMgYSBuZXcgaW5jb21pbmcgY2FsbCAqLwpUd2lsaW8uRGV2aWNlLmluY29taW5nKGZ1bmN0aW9uKGNvbm5lY3Rpb24pIHsKICB1cGRhdGVDYWxsU3RhdHVzKCJJbmNvbWluZyBzdXBwb3J0IGNhbGwiKTsKCiAgLy8gU2V0IGEgY2FsbGJhY2sgdG8gYmUgZXhlY3V0ZWQgd2hlbiB0aGUgY29ubmVjdGlvbiBpcyBhY2NlcHRlZAogIGNvbm5lY3Rpb24uYWNjZXB0KGZ1bmN0aW9uKCkgewogICAgdXBkYXRlQ2FsbFN0YXR1cygiSW4gY2FsbCB3aXRoIGN1c3RvbWVyIik7CiAgfSk7CgogIC8vIFNldCBhIGNhbGxiYWNrIG9uIHRoZSBhbnN3ZXIgYnV0dG9uIGFuZCBlbmFibGUgaXQKICBhbnN3ZXJCdXR0b24uY2xpY2soZnVuY3Rpb24oKSB7CiAgICBjb25uZWN0aW9uLmFjY2VwdCgpOwogIH0pOwogIGFuc3dlckJ1dHRvbi5wcm9wKCJkaXNhYmxlZCIsIGZhbHNlKTsKfSk7CgovKiBDYWxsIGEgY3VzdG9tZXIgZnJvbSBhIHN1cHBvcnQgdGlja2V0ICovCmZ1bmN0aW9uIGNhbGxDdXN0b21lcihwaG9uZU51bWJlcikgewogIHVwZGF0ZUNhbGxTdGF0dXMoIkNhbGxpbmcgIiArIHBob25lTnVtYmVyICsgIi4uLiIpOwoKICB2YXIgcGFyYW1zID0geyJwaG9uZU51bWJlciI6IHBob25lTnVtYmVyfTsKICBUd2lsaW8uRGV2aWNlLmNvbm5lY3QocGFyYW1zKTsKfQoKLyogQ2FsbCB0aGUgc3VwcG9ydF9hZ2VudCBmcm9tIHRoZSBob21lIHBhZ2UgKi8KZnVuY3Rpb24gY2FsbFN1cHBvcnQoKSB7CiAgdXBkYXRlQ2FsbFN0YXR1cygiQ2FsbGluZyBzdXBwb3J0Li4uIik7CgogIC8vIE91ciBiYWNrZW5kIHdpbGwgYXNzdW1lIHRoYXQgbm8gcGFyYW1zIG1lYW5zIGEgY2FsbCB0byBzdXBwb3J0X2FnZW50CiAgVHdpbGlvLkRldmljZS5jb25uZWN0KCk7Cn0KCi8qIEVuZCBhIGNhbGwgKi8KZnVuY3Rpb24gaGFuZ1VwKCkgewogIFR3aWxpby5EZXZpY2UuZGlzY29ubmVjdEFsbCgpOwp9Cg==</textarea>
-<textarea class="saurus-file" data-file="app/controllers/tickets_controller.rb" data-mode="ruby">Y2xhc3MgVGlja2V0c0NvbnRyb2xsZXIgPCBBcHBsaWNhdGlvbkNvbnRyb2xsZXIKICBkZWYgY3JlYXRlCiAgICBUaWNrZXQuY3JlYXRlKHRpY2tldF9wYXJhbXMpCiAgICByZWRpcmVjdF90byByb290X3BhdGgsIG5vdGljZTogJ1lvdXIgdGlja2V0IHdhcyBzdWJtaXR0ZWQhIEFuIGFnZW50IHdpbGwgY2FsbCB5b3Ugc29vbi4nCiAgZW5kCgogIGRlZiB0aWNrZXRfcGFyYW1zCiAgICBwYXJhbXMucmVxdWlyZSg6dGlja2V0KS5wZXJtaXQoOm5hbWUsIDpwaG9uZV9udW1iZXIsIDpkZXNjcmlwdGlvbikKICBlbmQKZW5kCg==</textarea>
+<textarea class="saurus-file" data-file="app/controllers/tickets_controller.rb" data-mode="ruby">Y2xhc3MgVGlja2V0c0NvbnRyb2xsZXIgPCBBcHBsaWNhdGlvbkNvbnRyb2xsZXIKICBkZWYgY3JlYXRlCiAgICBzdXBwb3J0X3RpY2tldCA9IFRpY2tldC5uZXcodGlja2V0X3BhcmFtcykKCiAgICBpZiBzdXBwb3J0X3RpY2tldC5zYXZlCiAgICAgIHJlZGlyZWN0X3RvIHJvb3RfcGF0aCwgbm90aWNlOgogICAgICAgICdZb3VyIHRpY2tldCB3YXMgc3VibWl0dGVkISBBbiBhZ2VudCB3aWxsIGNhbGwgeW91IHNvb24uJwogICAgZWxzZQogICAgICByZWRpcmVjdF90byByb290X3BhdGgsIGZsYXNoOgogICAgICAgIHsgZXJyb3I6IHN1cHBvcnRfdGlja2V0LmVycm9ycy5mdWxsX21lc3NhZ2VzIH0KICAgIGVuZAogIGVuZAoKICBkZWYgdGlja2V0X3BhcmFtcwogICAgcGFyYW1zLnJlcXVpcmUoOnRpY2tldCkucGVybWl0KDpuYW1lLCA6cGhvbmVfbnVtYmVyLCA6ZGVzY3JpcHRpb24pCiAgZW5kCmVuZAo=</textarea>
 <textarea class="saurus-file" data-file="app/views/dashboard/index.erb" data-mode="html_ruby">PGgyPlN1cHBvcnQgVGlja2V0czwvaDI+Cgo8cCBjbGFzcz0ibGVhZCI+ClRoaXMgaXMgdGhlIGxpc3Qgb2YgbW9zdCByZWNlbnQgc3VwcG9ydCB0aWNrZXRzLiBDbGljayB0aGUgIkNhbGwgY3VzdG9tZXIiIGJ1dHRvbiB0byBzdGFydCBhIHBob25lIGNhbGwgZnJvbSB5b3VyIGJyb3dzZXIuCjwvcD4KCjxkaXYgY2xhc3M9InJvdyI+CiAgPGRpdiBjbGFzcz0iY29sLW1kLTQgY29sLW1kLXB1c2gtOCI+CiAgICA8ZGl2IGNsYXNzPSJwYW5lbCBwYW5lbC1wcmltYXJ5IGNsaWVudC1jb250cm9scyI+CiAgICAgIDxkaXYgY2xhc3M9InBhbmVsLWhlYWRpbmciPgogICAgICAgIDxoMyBjbGFzcz0icGFuZWwtdGl0bGUiPk1ha2UgYSBjYWxsPC9oMz4KICAgICAgPC9kaXY+CiAgICAgIDxkaXYgY2xhc3M9InBhbmVsLWJvZHkiPgogICAgICAgIDxwPjxzdHJvbmc+U3RhdHVzPC9zdHJvbmc+PC9wPgogICAgICAgIDxkaXYgY2xhc3M9IndlbGwgd2VsbC1zbSIgaWQ9ImNhbGwtc3RhdHVzIj4KICAgICAgICAgIENvbm5lY3RpbmcgdG8gVHdpbGlvLi4uCiAgICAgICAgPC9kaXY+CgogICAgICAgIDxidXR0b24gY2xhc3M9ImJ0biBidG4tbGcgYnRuLXN1Y2Nlc3MgYW5zd2VyLWJ1dHRvbiIgZGlzYWJsZWQ+QW5zd2VyIGNhbGw8L2J1dHRvbj4KICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4gYnRuLWxnIGJ0bi1kYW5nZXIgaGFuZ3VwLWJ1dHRvbiIgZGlzYWJsZWQgb25jbGljaz0iaGFuZ1VwKCkiPkhhbmcgdXA8L2J1dHRvbj4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICA8L2Rpdj4KCiAgPGRpdiBjbGFzcz0iY29sLW1kLTggY29sLW1kLXB1bGwtNCI+CiAgICA8JSBAdGlja2V0cy5lYWNoIGRvIHx0aWNrZXR8ICU+CiAgICA8ZGl2IGNsYXNzPSJwYW5lbCBwYW5lbC1kZWZhdWx0Ij4KICAgICAgPGRpdiBjbGFzcz0icGFuZWwtaGVhZGluZyI+CiAgICAgICAgPGgzIGNsYXNzPSJwYW5lbC10aXRsZSI+VGlja2V0ICM8JT0gdGlja2V0LmlkICU+ICA8c21hbGwgY2xhc3M9InB1bGwtcmlnaHQiPjwlPSB0aWNrZXQuY3JlYXRlZF9hdCAlPjwvc21hbGw+PC9oMz4KICAgICAgPC9kaXY+CgogICAgICA8ZGl2IGNsYXNzPSJwYW5lbC1ib2R5Ij4KCiAgICAgICAgPGRpdiBjbGFzcz0icHVsbC1yaWdodCI+CiAgICAgICAgICA8YnV0dG9uIG9uY2xpY2s9ImNhbGxDdXN0b21lcignPCU9IHRpY2tldC5waG9uZV9udW1iZXIgJT4nKSIgdHlwZT0iYnV0dG9uIiBjbGFzcz0iYnRuIGJ0bi1wcmltYXJ5IGJ0bi1sZyBjYWxsLWN1c3RvbWVyLWJ1dHRvbiI+CiAgICAgICAgICAgIDxzcGFuIGNsYXNzPSJnbHlwaGljb24gZ2x5cGhpY29uLWVhcnBob25lIiBhcmlhLWhpZGRlbj0idHJ1ZSI+PC9zcGFuPgogICAgICAgICAgICBDYWxsIGN1c3RvbWVyCiAgICAgICAgICA8L2J1dHRvbj4KICAgICAgICA8L2Rpdj4KCiAgICAgICAgPHA+PHN0cm9uZz5OYW1lOjwvc3Ryb25nPiA8JT0gdGlja2V0Lm5hbWUgJT48L3A+CiAgICAgICAgPHA+PHN0cm9uZz5QaG9uZSBudW1iZXI6PC9zdHJvbmc+IDwlPSB0aWNrZXQucGhvbmVfbnVtYmVyICU+PC9wPgogICAgICAgIDxwPjxzdHJvbmc+RGVzY3JpcHRpb246PC9zdHJvbmc+PC9wPgogICAgICAgIDwlPSB0aWNrZXQuZGVzY3JpcHRpb24gJT4KICAgICAgPC9kaXY+CiAgICA8L2Rpdj4KICAgIDwlIGVuZCAlPgogIDwvZGl2Pgo8L2Rpdj4K</textarea>
-<textarea class="saurus-file" data-file="lib/twilio_capability.rb" data-mode="ruby">Y2xhc3MgVHdpbGlvQ2FwYWJpbGl0eQogIGRlZiBzZWxmLmdlbmVyYXRlKHJvbGUpCiAgICAjIFRvIGZpbmQgVFdJTElPX0FDQ09VTlRfU0lELCBUV0lMSU9fQVVUSF9UT0tFTiB2aXNpdAogICAgIyBodHRwczovL3d3dy50d2lsaW8uY29tL3VzZXIvYWNjb3VudAogICAgYWNjb3VudF9zaWQgPSBFTlZbJ1RXSUxJT19BQ0NPVU5UX1NJRCddCiAgICBhdXRoX3Rva2VuICA9IEVOVlsnVFdJTElPX0FVVEhfVE9LRU4nXQogICAgY2FwYWJpbGl0eSA9IFR3aWxpbzo6VXRpbDo6Q2FwYWJpbGl0eS5uZXcgYWNjb3VudF9zaWQsIGF1dGhfdG9rZW4KCiAgICBhcHBsaWNhdGlvbl9zaWQgPSBFTlZbJ1RXSU1MX0FQUExJQ0FUSU9OX1NJRCddCiAgICBjYXBhYmlsaXR5LmFsbG93X2NsaWVudF9vdXRnb2luZyBhcHBsaWNhdGlvbl9zaWQKICAgIGNhcGFiaWxpdHkuYWxsb3dfY2xpZW50X2luY29taW5nIHJvbGUKCiAgICB0b2tlbiA9IGNhcGFiaWxpdHkuZ2VuZXJhdGUKICBlbmQKZW5kCg==</textarea>
+<textarea class="saurus-file" data-file="lib/twilio_capability.rb" data-mode="ruby">Y2xhc3MgVHdpbGlvQ2FwYWJpbGl0eQogIGRlZiBzZWxmLmdlbmVyYXRlKHJvbGUpCiAgICAjIFRvIGZpbmQgVFdJTElPX0FDQ09VTlRfU0lELCBUV0lMSU9fQVVUSF9UT0tFTiB2aXNpdAogICAgIyBodHRwczovL3d3dy50d2lsaW8uY29tL3VzZXIvYWNjb3VudAogICAgYWNjb3VudF9zaWQgPSBFTlZbJ1RXSUxJT19BQ0NPVU5UX1NJRCddCiAgICBhdXRoX3Rva2VuICA9IEVOVlsnVFdJTElPX0FVVEhfVE9LRU4nXQogICAgY2FwYWJpbGl0eSA9IFR3aWxpbzo6VXRpbDo6Q2FwYWJpbGl0eS5uZXcgYWNjb3VudF9zaWQsIGF1dGhfdG9rZW4KCiAgICBhcHBsaWNhdGlvbl9zaWQgPSBFTlZbJ1RXSU1MX0FQUExJQ0FUSU9OX1NJRCddCiAgICBjYXBhYmlsaXR5LmFsbG93X2NsaWVudF9vdXRnb2luZyBhcHBsaWNhdGlvbl9zaWQKICAgIGNhcGFiaWxpdHkuYWxsb3dfY2xpZW50X2luY29taW5nIHJvbGUKCiAgICBjYXBhYmlsaXR5LmdlbmVyYXRlCiAgZW5kCmVuZAo=</textarea>
 <textarea class="saurus-file" data-file="app/controllers/call_controller.rb" data-mode="ruby">Y2xhc3MgQ2FsbENvbnRyb2xsZXIgPCBBcHBsaWNhdGlvbkNvbnRyb2xsZXIKICBza2lwX2JlZm9yZV9maWx0ZXIgOnZlcmlmeV9hdXRoZW50aWNpdHlfdG9rZW4KCiAgZGVmIGNvbm5lY3QKICAgIHJlbmRlciB4bWw6IHR3aWxpb19yZXBvbnNlLnRvX3htbAogIGVuZAoKICBwcml2YXRlCgogIGRlZiB0d2lsaW9fcmVwb25zZQogICAgdHdpbGlvX251bWJlciA9IEVOVlsnVFdJTElPX1BIT05FX05VTUJFUiddCgogICAgVHdpbGlvOjpUd2lNTDo6UmVzcG9uc2UubmV3IGRvIHxyZXNwb25zZXwKICAgICAgcmVzcG9uc2UuRGlhbCBjYWxsZXJJZDogdHdpbGlvX251bWJlciBkbyB8ZGlhbHwKICAgICAgICBpZiBwYXJhbXMuaW5jbHVkZT8oOnBob25lTnVtYmVyKQogICAgICAgICAgZGlhbC5OdW1iZXIgcGFyYW1zWzpwaG9uZU51bWJlcl0KICAgICAgICBlbHNlCiAgICAgICAgICBkaWFsLkNsaWVudCgnc3VwcG9ydF9hZ2VudCcpCiAgICAgICAgZW5kCiAgICAgIGVuZAogICAgZW5kCiAgZW5kCmVuZAo=</textarea>
 </div>
 </div><div class="saurus-overview"><ul></ul></div></div><div class="saurus-code"><div class="file-path"><span class="crumb-container"></span><i class="fa fa-fw fa-folder"></i></div><div class="saurus-editor"></div></div><div class="saurus-explorer"><div class="saurus-file-list"></div><a href="https://github.com/TwilioDevEd/browser-calls-rails" target="_blank" class="explorer-get-code"> <i class="fa fa-lg fa-github-square"> </i>View Code on GitHub</a></div></div></div></div><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script><script src="ace/ace.js"></script><script src="ace/theme-monokai.js"></script><script src="viewsaurus.js"></script></body></html>
