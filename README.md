@@ -2,7 +2,7 @@
 [![Build
 Status](https://travis-ci.org/TwilioDevEd/browser-calls-rails.svg?branch=master)](https://travis-ci.org/TwilioDevEd/browser-calls-rails)
 
-Learn how to use [Twilio Client](https://www.twilio.com/client) to make browser-to-phone and browser-to-browser calls with ease. The unsatisfied customers of the Birchwood Bicycle Polo Co. need your help.
+Learn how to use [Twilio Client](https://www.twilio.com/client) to make browser-to-phone and browser-to-browser calls with ease. The unsatisfied customers of the Birchwood Bicycle Polo Co. need your help!
 
 ## Quickstart
 
@@ -12,17 +12,11 @@ This project is configured to use a **TwiML App**, which allows us to easily set
 
 Create a new TwiML app at https://www.twilio.com/user/account/apps/add and use its `Sid` as the `TWIML_APPLICATION_SID` environment variable wherever you run this app.
 
-![Creating a TwiML App](https://howtodocs.s3.amazonaws.com/call-tracking-twiml-app.gif)
+![Creating a TwiML App](http://howtodocs.s3.amazonaws.com/call-tracking-twiml-app.gif)
 
-You can learn more about TwiML apps here: https://www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app
+See the end of the "Local development" section for details on the exact URL to use in your TwiML app.
 
-### Get a Twilio Phone Number
-
-To run this project you will also need a Twilio phone number. You can purchase a new number in your [Twilio Account Dashboard](https://www.twilio.com/user/account/phone-numbers/incoming).
-
-Once you have that number, you will need to configure it to use the TwiML app you created above. This GIF shows you how:
-
-![Configuring a Twilio number with a TwimL App](https://howtodocs.s3.amazonaws.com/twilio-number-config-all-med.gif)
+Once you have created your TwiML app, configure your Twilio phone number to use it ([instructions here](https://www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app)). If you don't have a Twilio phone number yet, you can purchase a new number in your [Twilio Account Dashboard](https://www.twilio.com/user/account/phone-numbers/incoming).
 
 ### Local development
 
