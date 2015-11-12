@@ -49,7 +49,13 @@
       [Rails layouts](//guides.rubyonrails.org/layouts_and_rendering.html)
       to power the page.
 
-      The `Ticket` model itself has just a few fields.
+      The `Ticket` model itself has just a few fields:
+
+      ```
+      class Ticket < ActiveRecord::Base
+        validates :name, :phone_number, :description, presence: true
+      end
+      ```
 
       ---
 
@@ -71,7 +77,7 @@
       function we wrote named `callCustomer()`. That function kicks off a Twilio
       Client call to the phone number passed as its sole parameter.
 
-  .step(data-file='lib/twilio_capability.rb', data-highlight='2-14')
+  .step(data-file='lib/twilio_capability.rb', data-highlight='1-10, 12-15')
     :markdown
       ## Generate a capability token
 
@@ -137,7 +143,7 @@
 
       * [Twilio.Device.connect()](//www.twilio.com/docs/client/device#connect)
 
-  .step(data-file='app/controllers/call_controller.rb', data-highlight='2-22')
+  .step(data-file='app/controllers/call_controller.rb', data-highlight='1-16, 19-23')
     :markdown
       ## Connect the call to a phone number
 
@@ -203,11 +209,15 @@
       ## Connect the call to the support agent's client
 
       To allow our support agents to accept incoming calls we use the
-      `allow_client_incoming` method when generating their capability token,
-      passing `support_agent` as the client's name.
+      `allow_client_incoming()` method when generating their capability token,
+      passing support_agent as the client's name:
 
-      When Twilio sends a POST request to our `/call/connect` end point, we can connect the
-      call to our support agent by responding with a
+      ```
+      capability.allow_client_incoming 'support_agent'
+      ```
+
+      Then, when Twilio sends a POST request to our `/call/connect` end point,
+      we can connect the call to our support agent by responding with a
       [<Client>](//www.twilio.com/docs/api/twiml/client) TwiML noun and
       the `support_agent` name.
 
@@ -284,15 +294,12 @@
       If you're a Ruby developer working with Twilio, you might also enjoy these
       tutorials:
 
-      [**Appointment-Reminders (Rails)**](//www.twilio.com/docs/howto/walkthrough/appointment-reminders/ruby/rails)
+      [**Click-To-Call**](//www.twilio.com/docs/howto/walkthrough/click-to-call/ruby/rails)
 
-      Schedule appointment reminders to be sent via sms
+      Put a button on your web page that connects visitors to live support or
+      sales people via telephone.
 
-      [**Click-To-Call (Rails)**](//www.twilio.com/docs/howto/walkthrough/click-to-call/ruby/rails)
-
-      Put a button on your web page that connects visitors to live support or sales people via telephone.
-
-      [**Automated Survey (Rails)**](//www.twilio.com/docs/howto/walkthrough/automated-survey/ruby/rails)
+      [**Automated Survey**](//www.twilio.com/docs/howto/walkthrough/automated-survey/ruby/rails)
 
       Instantly collect structured data from your users with a survey conducted
       over a voice call or SMS text messages.
