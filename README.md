@@ -1,8 +1,14 @@
-# Browser Calls (Rails)
+<a href="https://www.twilio.com">
+  <img src="https://static0.twilio.com/marketing/bundles/marketing/img/logos/wordmark-red.svg" alt="Twilio" width="250" />
+</a>
+
+# Browser Calls - Rails
 [![Build
 Status](https://travis-ci.org/TwilioDevEd/browser-calls-rails.svg?branch=master)](https://travis-ci.org/TwilioDevEd/browser-calls-rails)
 
 Learn how to use [Twilio Client](https://www.twilio.com/client) to make browser-to-phone and browser-to-browser calls with ease. The unsatisfied customers of the Birchwood Bicycle Polo Co. need your help!
+
+[Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/browser-calls/ruby/rails)!
 
 ## Quickstart
 
@@ -10,76 +16,77 @@ Learn how to use [Twilio Client](https://www.twilio.com/client) to make browser-
 
 This project is configured to use a **TwiML App**, which allows us to easily set the voice URLs for all Twilio phone numbers we purchase in this app.
 
-Create a new TwiML app at https://www.twilio.com/user/account/apps/add and use its `Sid` as the `TWIML_APPLICATION_SID` environment variable wherever you run this app.
+Create a new TwiML app at https://www.twilio.com/console/phone-numbers/dev-tools/twiml-apps and use its `Sid` as the `TWIML_APPLICATION_SID` environment variable wherever you run this app.
 
 ![Creating a TwiML App](http://howtodocs.s3.amazonaws.com/call-tracking-twiml-app.gif)
 
 See the end of the "Local development" section for details on the exact URL to use in your TwiML app.
 
-Once you have created your TwiML app, configure your Twilio phone number to use it ([instructions here](https://www.twilio.com/help/faq/twilio-client/how-do-i-create-a-twiml-app)). If you don't have a Twilio phone number yet, you can purchase a new number in your [Twilio Account Dashboard](https://www.twilio.com/user/account/phone-numbers/incoming).
-
 ### Local development
 
-This project is built using the [Ruby on Rails](http://rubyonrails.org/) web framework. It runs on Ruby 2.2.3.
+This project is built using the [Ruby on Rails](http://rubyonrails.org/) web framework. It runs on Ruby 2.3.1.
 
-1. First clone this repository and `cd` into its directory:
+1. First clone this repository and `cd` into it:
    ```
    git clone git@github.com:TwilioDevEd/browser-calls-rails.git
-
    cd browser-calls-rails
    ```
 
-2. Install the dependencies:
-   ```
-   bundle
+1. Install the dependencies
+
+   ```bash
+   $ bundle
    ```
 
-3. Export the environment variables:
-   You can find the `AccountSID` and the `AuthToken` at https://www.twilio.com/user/account/settings.
-   ```
-   export TWILIO_ACCOUNT_SID=your account sid
-   export TWILIO_AUTH_TOKEN=your auth token
-   ```
+1. Copy the sample configuration file and edit it to match your configuration
 
-   Also export the SID for the TwiML App you created above:
-   ```
-   export TWIML_APPLICATION_SID=your twiml app sid
+   ```bash
+   $ cp .env.example .env
    ```
 
-   Finally, export your Twilio phone number:
-   ```
-   export TWILIO_PHONE_NUMBER=your twilio phone number
-   ```
+   You can find your `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` in your
+   [Twilio Account Settings](https://www.twilio.com/console).
+   You will also need a `TWILIO_NUMBER`, which you may find [here](https://www.twilio.com/console/phone-numbers/incoming).
 
-4. Create database and run migrations:
+   Run `source .env` to export the environment variables
 
-  _Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on a Mac, I recommend [Postgres.app](http://postgresapp.com)_
+1. Create database and run migrations
 
-   ```
-   rake db:setup
-   ```
+   _Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
+   a Mac, I recommend [Postgres.app](http://postgresapp.com)_.
 
-5. Make sure the tests succeed:
-   ```
-   rspec
+   ```bash
+   $ bundle exec rake db:setup
    ```
 
-6. Run the server:
+1. Make sure the tests succeed
+   ```bash
+   $ bundle exec rspec
    ```
-   rails server
+
+1. Run the server
+
+   ```bash
+   $ bundle exec rails s
    ```
 
-7. Check it out at [http://localhost:3000](http://localhost:3000)
+1. Expose your application to the wider internet using [ngrok](http://ngrok.com). This step
+   is important because the application won't work as expected if you run it through
+   localhost.
 
-That's it!
+   ```bash
+   $ ngrok http 3000
+   ```
 
-To actually forward incoming calls, your development server will need to be publicly accessible. [We recommend using ngrok to solve this problem](https://www.twilio.com/blog/2015/09/6-awesome-reasons-to-use-ngrok-when-testing-webhooks.html).
+   Once you have started ngrok, update your [TwiML app's](#create-a-twiml-app) voice URL setting to use
+   your ngrok hostname, so it will look something like this:
 
-Once you have started ngrok, update your TwiML app's voice URL setting to use your ngrok hostname, so it will look something like this:
+   ```
+   http://<your-ngrok-subdomain>.ngrok.io/call/connect
+   ```
 
-```
-http://<your-ngrok-subdomain>.ngrok.io/call/connect
-```
+   You can read [this blog post](https://www.twilio.com/blog/2015/09/6-awesome-reasons-to-use-ngrok-when-testing-webhooks.html)
+   for more details on how to use ngrok.
 
 ## Meta
 
