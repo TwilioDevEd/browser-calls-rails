@@ -7,7 +7,7 @@ RSpec.describe DashboardController do
       allow(Ticket).to receive(:all) { [ticket] }
 
       get :index
-      expect(assigns :tickets).to eq([ticket])
+      expect(assigns(:tickets)).to eq([ticket])
     end
   end
 end
