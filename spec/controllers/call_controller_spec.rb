@@ -5,6 +5,7 @@ describe CallController do
     context 'when phoneNumber is provided' do
       it 'dials to phone number' do
         post :connect, phoneNumber: 'phone-number'
+
         xml = load_xml(response.body)
         expect(xml.at_xpath('//Response//Dial//Number').content)
           .to eq('phone-number')
