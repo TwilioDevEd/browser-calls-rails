@@ -15,10 +15,14 @@ end
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'twilio-ruby'
+gem 'twilio-ruby', '~> 5.0.0'
 
 group :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'database_cleaner'
+end
+
+group :development do
+  gem 'pry-rails'
 end
