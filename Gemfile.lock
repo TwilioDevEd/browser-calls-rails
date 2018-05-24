@@ -57,7 +57,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
-    faraday (0.12.1)
+    faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -156,7 +156,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
-    twilio-ruby (5.0.0.rc26)
+    twilio-ruby (5.0.0)
       faraday (~> 0.9)
       jwt (~> 1.5)
       libxml-ruby (= 3.0.0)
@@ -181,8 +181,8 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sqlite3
   turbolinks
-  twilio-ruby (~> 5.0.0.rc26)
+  twilio-ruby (~> 5.0.0)
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.4
