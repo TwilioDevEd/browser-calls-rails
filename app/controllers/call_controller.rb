@@ -16,7 +16,7 @@ class CallController < ApplicationController
       if params.include?(:phoneNumber)
         dial.number params[:phoneNumber]
       else
-        dial.client('support_agent')
+        dial.client(identity: 'support_agent')
       end
       response.append(dial)
     end
