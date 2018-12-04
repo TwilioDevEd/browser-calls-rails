@@ -11,7 +11,7 @@
   <![endif]-->
 
   <!-- CSS -->
-  <%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -37,13 +37,13 @@
 
       <%= yield %>
       <footer>
-        <p>&copy; Your Company 2015</p>
+        <p>&copy; Your Company <%= Time.now.year %></p>
       </footer>
 
     </div> <!-- /container -->
-    <%= javascript_include_tag "//code.jquery.com/jquery-2.1.4.min.js" %>
-    <%= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" %>
-    <%= javascript_include_tag "//static.twilio.com/libs/twiliojs/1.2/twilio.min.js" %>
+    <%= javascript_include_tag "//code.jquery.com/jquery-3.3.1.min.js" %>
+    <%= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
+    <%= javascript_include_tag "//media.twiliocdn.com/sdk/js/client/releases/1.6.1/twilio.min.js" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
