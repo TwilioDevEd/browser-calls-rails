@@ -1,5 +1,5 @@
 class CallController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def connect
     render xml: twilio_reponse
@@ -16,7 +16,7 @@ class CallController < ApplicationController
       if params.include?(:phoneNumber)
         dial.number params[:phoneNumber]
       else
-        dial.client('support_agent')
+        dial.client(identity: 'support_agent')
       end
       response.append(dial)
     end

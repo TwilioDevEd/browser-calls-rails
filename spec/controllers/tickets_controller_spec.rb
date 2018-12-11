@@ -14,18 +14,18 @@ describe TicketsController do
 
     it 'creates a ticket' do
       expect do
-        post :create, ticket_params
+        post :create, params: ticket_params
       end.to change(Ticket, :count).by(1)
     end
 
     it 'redirects to root path' do
-      post :create, ticket_params
+      post :create, params: ticket_params
       expect(response).to redirect_to root_path
     end
 
     it 'do not create a ticket if params are invalid' do
       expect do
-        post :create, ticket: { name: '' }
+        post :create, params: { ticket: { name: '' } }
       end.to_not change(Ticket, :count)
     end
   end
