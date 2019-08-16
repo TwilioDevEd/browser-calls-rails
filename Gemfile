@@ -12,7 +12,7 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
 end
 
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twilio-ruby', '~> 5.17.0'
