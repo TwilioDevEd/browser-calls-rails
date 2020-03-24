@@ -2,7 +2,7 @@
 lock "~> 3.12.1"
 
 set :application, "poc"
-set :repo_url, "git@github.com:smithwebtek/browser-calls-rails.git"
+set :repo_url, "git@github.com:smithwebtek/.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -29,7 +29,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-set :default_env, "production"
+# set :default_env, "production"
 
 
 # Default value for local_user is ENV['USER']
