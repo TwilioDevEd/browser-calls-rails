@@ -18,10 +18,20 @@ function updateCallStatus(status) {
 /* Get a Twilio Client token with an AJAX request */
 $(document).ready(function() {
   $.post("/token/generate", {page: window.location.pathname}, function(data) {
-    // Set up the Twilio Client Device with the token
-    Twilio.Device.setup(data.token);
+    // function to satisy Chrome AudioContext constraint
+    userGesture(data.token);
   });
 });
+
+function userGesture(token) {
+  document.querySelector('button').addEventListener('click', function() {
+    var context = new AudioContext();
+    context.resume().then(() => {
+      console.log('Playback resumed successfully');
+    });
+  });
+  Twilio.Device.setup(token);
+}
 
 /* Callback to let us know Twilio Client is ready */
 Twilio.Device.ready(function (device) {

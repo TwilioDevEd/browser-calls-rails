@@ -4,6 +4,12 @@ gem 'rails', '~> 5.2.2'
 gem 'sqlite3'
 gem 'pg'
 
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rvm'
+gem 'capistrano-websocket-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -14,7 +20,6 @@ end
 
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'twilio-ruby', '~> 5.17.0'
 
 group :test do
