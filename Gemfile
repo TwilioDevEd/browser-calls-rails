@@ -20,7 +20,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'twilio-ruby', '~> 5.17.0'
 
 group :test do
