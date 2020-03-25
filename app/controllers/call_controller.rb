@@ -9,7 +9,7 @@ class CallController < ApplicationController
 
   def twilio_reponse
     twilio_number = ENV['TWILIO_PHONE_NUMBER']
-
+binding.pry
     res = Twilio::TwiML::VoiceResponse.new do |response|
       dial = Twilio::TwiML::Dial.new caller_id: twilio_number
 
