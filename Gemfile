@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.2.2'
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'pg'
 
 gem 'capistrano', '~> 3.11'
