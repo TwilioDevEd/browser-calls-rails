@@ -8,6 +8,7 @@ class TwilioCapability
     auth_token      = ENV['TWILIO_AUTH_TOKEN']
     application_sid = ENV['TWIML_APPLICATION_SID']
 
+    raise ENV['TWILIO_ACCOUNT_SID'].inspect
     puts "ENV are you there? twilio_phone: " + ENV["TWILIO_PHONE_NUMBER"]
 
     capability = Twilio::JWT::ClientCapability.new(account_sid, auth_token)
