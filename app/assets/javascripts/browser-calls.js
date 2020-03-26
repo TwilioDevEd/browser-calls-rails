@@ -18,7 +18,8 @@ function updateCallStatus(status) {
 /* Get a Twilio Client token with an AJAX request */
 $(document).ready(function() {
   $.post("/token/generate", {page: window.location.pathname}, function(data) {
-    // function to satisy Chrome AudioContext constraint
+    // Set up the Twilio Client Device with the token
+    // Twilio.Device.setup(data.token);
     userGesture(data.token);
   });
 });
