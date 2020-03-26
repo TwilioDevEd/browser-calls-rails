@@ -22,7 +22,7 @@ set :deploy_to, "/home/deploy/poc"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/secrets.yml", "config/master.key", ".env"
+append :linked_files, "config/database.yml", "config/secrets.yml", "config/master.key", "config/.env"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
