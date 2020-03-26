@@ -16,14 +16,14 @@ function updateCallStatus(status) {
 }
 
 /* Get a Twilio Client token with an AJAX request */
-$(document).ready(function() {
+$(document).ready(function () {
   $.post("/token/generate", {page: window.location.pathname}, function(data) {
     userGesture(data.token);
   });
 });
 
 function userGesture(token) {
-  document.querySelector('button').addEventListener('click', function() {
+  document.querySelector('button').addEventListener('click', function () {
     var context = new AudioContext();
     context.resume().then(() => {
       console.log('Playback resumed successfully');
