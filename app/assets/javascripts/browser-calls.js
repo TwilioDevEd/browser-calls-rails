@@ -17,6 +17,7 @@ function updateCallStatus(status) {
 
 /* Get a Twilio Client token with an AJAX request */
 $(document).ready(function () {
+    console.log('document ready loaded')
   $.post("/token/generate", {page: window.location.pathname}, function(data) {
     console.log("We have a token!! ", data.token)
     userGesture(data.token);
