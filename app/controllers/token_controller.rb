@@ -2,7 +2,7 @@ class TokenController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def generate
-    token = ::TwilioCapability.generate(role)
+    token = ::TwilioAccessToken.generate(role)
     render json: { token: token }
   end
 

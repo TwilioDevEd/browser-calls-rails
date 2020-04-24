@@ -3,8 +3,8 @@
 </a>
 
 # Browser Calls - Rails
-[![Build
-Status](https://travis-ci.org/TwilioDevEd/browser-calls-rails.svg?branch=master)](https://travis-ci.org/TwilioDevEd/browser-calls-rails)
+
+![](https://github.com/TwilioDevEd/browser-calls-rails/workflows/Ruby/badge.svg)
 
 > We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
@@ -26,7 +26,7 @@ See the end of the "Local development" section for details on the exact URL to u
 
 ### Local development
 
-This project is built using the [Ruby on Rails](http://rubyonrails.org/) web framework. It runs on Ruby 2.3.1.
+This project is built using the [Ruby on Rails](http://rubyonrails.org/) web framework. It runs on Ruby 2.6.3.
 
 1. First clone this repository and `cd` into it:
    ```
@@ -37,7 +37,7 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 1. Install the dependencies
 
    ```bash
-   $ bundle
+   $ bundle install
    ```
 
 1. Copy the sample configuration file and edit it to match your configuration
@@ -50,12 +50,7 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
    [Twilio Account Settings](https://www.twilio.com/console).
    You will also need a `TWILIO_NUMBER`, which you may find [here](https://www.twilio.com/console/phone-numbers/incoming).
 
-   Run `source .env` to export the environment variables
-
 1. Create database and run migrations
-
-   _Make sure you have installed [PostgreSQL](http://www.postgresql.org/). If on
-   a Mac, I recommend [Postgres.app](http://postgresapp.com)_.
 
    ```bash
    $ bundle exec rake db:setup
@@ -89,6 +84,15 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 
    You can read [this blog post](https://www.twilio.com/blog/2015/09/6-awesome-reasons-to-use-ngrok-when-testing-webhooks.html)
    for more details on how to use ngrok.
+
+### Try it out
+1. To create a support ticket go to the `home` page. On this page you could fill some fields and create a ticket or you can call to support:
+
+    [http://localhost:3000](http://localhost:3000)
+
+1. To respond to support tickets go to the `dashboard` page (you should open two windows or tabs). On this page you could call customers and answers phone calls.
+
+    [http://localhost:3000/dashboard](http://localhost:3000/dashboard)
 
 ## Meta
 
