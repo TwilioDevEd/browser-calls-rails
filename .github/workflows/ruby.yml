@@ -25,7 +25,7 @@ jobs:
         gem install bundler
         bundle install --jobs 4 --retry 3
     - name: Test
-      run: bundle exec rails test
+      run: bundle exec rspec
       env:
         TWILIO_ACCOUNT_SID: ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         TWIML_APPLICATION_SID: APXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
