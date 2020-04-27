@@ -18,9 +18,7 @@ Learn how to use [Twilio Client](https://www.twilio.com/client) to make browser-
 
 This project is configured to use a **TwiML App**, which allows us to easily set the voice URLs for all Twilio phone numbers we purchase in this app.
 
-Create a new TwiML app at https://www.twilio.com/console/phone-numbers/dev-tools/twiml-apps and use its `Sid` as the `TWIML_APPLICATION_SID` environment variable wherever you run this app.
-
-![Creating a TwiML App](http://howtodocs.s3.amazonaws.com/call-tracking-twiml-app.gif)
+Create a new TwiML app at https://www.twilio.com/console/voice/twiml/apps and use its `Sid` as the `TWIML_APPLICATION_SID` environment variable wherever you run this app.
 
 See the end of the "Local development" section for details on the exact URL to use in your TwiML app.
 
@@ -97,5 +95,6 @@ This project is built using the [Ruby on Rails](http://rubyonrails.org/) web fra
 ## Meta
 
 * No warranty expressed or implied. Software is as is. Diggity.
+* The CodeExchange repository can be found [here](https://github.com/twilio-labs/code-exchange/).
 * [MIT License](http://www.opensource.org/licenses/mit-license.html)
 * Lovingly crafted by Twilio Developer Education.
