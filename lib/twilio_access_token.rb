@@ -15,8 +15,8 @@ class TwilioAccessToken
     # Create an Access Token
     token = Twilio::JWT::AccessToken.new(
       ENV['TWILIO_ACCOUNT_SID'],
-      ENV['API_KEY'],
-      ENV['API_SECRET'],
+      ENV['TWILIO_API_KEY'],
+      ENV['TWILIO_API_SECRET'],
       [grant],
       identity: role
     )
