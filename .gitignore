@@ -18,3 +18,5 @@
 
 .env
 /vendor/bundle/
+
+.tool-versions
