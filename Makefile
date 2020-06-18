@@ -1,3 +1,5 @@
+.PHONY: install setup-serve serve
+
 install:
 	bundle install
 
