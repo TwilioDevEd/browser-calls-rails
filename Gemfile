@@ -28,3 +28,5 @@ end
 group :development do
   gem 'pry-rails'
 end
+
+gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.1'
