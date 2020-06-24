@@ -49,6 +49,13 @@ jobs:
         gem install bundler
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.13.1
+    - name: Install packages
+      run: |
+        npm install
     - name: Run tests
       run: |
         cp .env.example .env
