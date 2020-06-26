@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+require 'twilio_access_token'
+
 class TokenController < ApplicationController
   skip_before_action :verify_authenticity_token
 

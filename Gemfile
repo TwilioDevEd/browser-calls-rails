@@ -30,3 +30,7 @@ group :development do
 end
 
 gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.1'
+
+gem 'listen'
+
+gem "webpacker"
