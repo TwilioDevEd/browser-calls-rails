@@ -41,9 +41,9 @@
       </footer>
 
     </div> <!-- /container -->
-    <%= javascript_include_tag "//code.jquery.com/jquery-3.3.1.min.js" %>
-    <%= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
-    <%= javascript_include_tag "//media.twiliocdn.com/sdk/js/client/releases/1.6.1/twilio.min.js" %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script type="text/javascript" src="//sdk.twilio.com/js/client/releases/1.10.1/twilio.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src=<%= asset_path('browser-calls') %>></script>
 </body>
 </html>
