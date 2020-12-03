@@ -206,7 +206,7 @@ GEM
       nokogiri (>= 1.6, < 2.0)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2020.1)
+    tzinfo-data (1.2020.4)
       tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -239,7 +239,7 @@ DEPENDENCIES
   sqlite3
   turbolinks
   twilio-ruby (~> 5.44.0)
-  tzinfo-data (~> 1.2020, >= 1.2020.1)
+  tzinfo-data (~> 1.2020)
   uglifier (>= 4.2.0)
   webpacker
 
