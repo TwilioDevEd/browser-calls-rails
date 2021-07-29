@@ -197,7 +197,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    ruby2_keywords (0.0.4)
+    ruby2_keywords (0.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
@@ -222,7 +222,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twilio-ruby (5.57.0)
+    twilio-ruby (5.57.1)
       faraday (>= 0.9, < 2.0)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
@@ -260,7 +260,7 @@ DEPENDENCIES
   sass-rails (~> 6.0)
   sqlite3
   turbolinks
-  twilio-ruby (~> 5.57.0)
+  twilio-ruby (~> 5.57.1)
   tzinfo-data (~> 1.2021)
   uglifier (>= 4.2.0)
   webpacker
