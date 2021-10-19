@@ -224,7 +224,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twilio-ruby (5.59.0)
+    twilio-ruby (5.60.0)
       faraday (>= 0.9, < 2.0)
       jwt (>= 1.5, <= 2.5)
       nokogiri (>= 1.6, < 2.0)
@@ -262,7 +262,7 @@ DEPENDENCIES
   sass-rails (~> 6.0)
   sqlite3
   turbolinks
-  twilio-ruby (~> 5.59.0)
+  twilio-ruby (~> 5.60.0)
   tzinfo-data (~> 1.2021)
   uglifier (>= 4.2.0)
   webpacker
