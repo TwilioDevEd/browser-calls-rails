@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 6.1', '>= 6.1.4.6'
 
 gem 'sqlite3'
 
@@ -8,20 +8,20 @@ gem 'sqlite3'
 # in production environments by default.
 group :assets do
   gem 'coffee-rails', '~> 5.0.0'
-  gem 'sass-rails', '~> 6.0'
+  gem 'sass-rails', '~> 6.0', '>= 6.0.0'
   gem 'uglifier', '>= 4.2.0'
 end
 
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'dotenv-rails', groups: [:development, :test]
-gem 'jquery-rails'
+gem 'dotenv-rails', '>= 2.7.6', groups: [:development, :test]
+gem 'jquery-rails', '>= 4.4.0'
 gem 'turbolinks'
 gem 'twilio-ruby', '~> 5.64.0'
 
 group :test do
   gem 'byebug'
-  gem 'rspec-rails'
-  gem 'rails-controller-testing'
+  gem 'rspec-rails', '>= 5.1.0'
+  gem 'rails-controller-testing', '>= 1.0.5'
   gem 'database_cleaner'
 end
 
@@ -33,4 +33,4 @@ gem 'tzinfo-data', '~> 1.2021'
 
 gem 'listen'
 
-gem "webpacker"
+gem "webpacker", ">= 5.4.3"
