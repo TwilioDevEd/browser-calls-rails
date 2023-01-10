@@ -29,7 +29,7 @@ group :development do
   gem 'pry-rails'
 end
 
-gem 'tzinfo-data', '~> 1.2021'
+gem 'tzinfo-data', '~> 1.2022'
 
 gem 'listen'
 
